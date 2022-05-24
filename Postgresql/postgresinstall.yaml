@@ -1,6 +1,9 @@
 - name: Playbook to install and configure postgresql database in RHEL 8.4
   hosts: all
   tasks: 
+  - sleep:
+      wait_for_seconds: 300
+  
   - name: Ensure database appdb is present
     postgresql_db:
       name: test
