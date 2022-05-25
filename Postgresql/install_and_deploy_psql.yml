@@ -4,12 +4,12 @@
     - vars.yml
   tasks:
   - name: Ensure postgresql 12 is installed
-    dnf:
+    yum:
       name: "@postgresql:12"
       state: present
 
   - name: Ensure dependencies for postgresql is installed in the system
-    dnf:
+    yum:
       name: python3-psycopg2
       state: present
 
