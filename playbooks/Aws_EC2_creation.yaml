@@ -5,7 +5,7 @@
     amazon.aws.ec2_instance:
       name: "Ashok Leyland"
       key_name: "ashokawskeypair"
-      vpc_subnet_id: subnet-5ca1ab1e
+      vpc_subnet_id: subnet-09b529c12a1797f97
       instance_type: m5d.large
       region: us-east-2
       security_group: default
