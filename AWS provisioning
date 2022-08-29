@@ -1,6 +1,6 @@
 - name: playbook to create EC2 instance
   hosts: all
-  
+  tasks:
   - name: start an instance with a public IP address
     amazon.aws.ec2_instance:
       name: "Ashok Leyland"
