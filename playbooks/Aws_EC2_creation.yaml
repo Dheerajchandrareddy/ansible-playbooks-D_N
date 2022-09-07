@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
   - name: start an instance with a public IP address
-    amazon.aws.ec2:
+  - amazon.aws.ec2:
       name: "Ashok Leyland"
       key_name: "ashokawskeypair"
       vpc_subnet_id: subnet-0d244753edb122d2b
