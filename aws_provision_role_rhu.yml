@@ -60,6 +60,8 @@
         image: ami-0fecef330e60167c1
         wait: yes
         group: ansible_tower_sg
+        instance_tags:
+          Name: RHEL
         count: 1
         vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
         assign_public_ip: yes
@@ -75,6 +77,8 @@
         image: ami-0d72555523e18b6d7
         wait: yes
         group: ansible_tower_sg
+        instance_tags:
+          Name: Windows
         count: 1
         vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
         assign_public_ip: yes
