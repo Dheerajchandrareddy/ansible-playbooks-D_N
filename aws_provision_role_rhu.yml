@@ -24,13 +24,13 @@
     - name: Create a subnet on the VPC
       amazon.aws.ec2_vpc_subnet:
         state: present
-        vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
+        vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
         cidr: 10.10.0.0/20
         region: "{{ aws_region }}"
       register: ansible_tower_subnet
     - name: Setup public subnet route table
       amazon.aws.ec2_vpc_route_table:
-        vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
+        vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
         region: "{{ aws_region }}"
         subnets: "{{ ansible_tower_subnet.subnet.id }}"
         routes:
@@ -40,7 +40,7 @@
       amazon.aws.ec2_group:
         name: ansible_tower_sg
         description: AWS Security Group for Ansible Tower Demonstration
-        vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
+        vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
         region: "{{ aws_region }}"
         rules:
           - proto: tcp 
