@@ -63,6 +63,7 @@
         count: 1
         vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
         assign_public_ip: yes
+      register: ansible_tower_instance
     - name: Show rhel 8 instance details - debug output
       debug: 
         msg: "rhel8 instance is accesible at {{ ansible_tower_instance.instance[0].public_ip }}"
