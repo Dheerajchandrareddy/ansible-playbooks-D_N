@@ -20,7 +20,7 @@
         vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
         region: "{{ aws_region }}"
         state: present
-      register: ansible_tower_vpc
+      register: ansible_tower_igw
     - name: Create a subnet on the VPC
       amazon.aws.ec2_vpc_subnet:
         state: present
