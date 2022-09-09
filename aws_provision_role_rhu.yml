@@ -47,6 +47,10 @@
             ports: 22
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all connections on port 22
+    - name: Task to create key pair
+      amazon.aws.ec2_key:
+        name: ansible-tower-aws-key
+        key_material: "{{ lookup('file', '~/.ssh/git.pub') }}"
     - name: Task to provision the RHEL 8 EC2 instance
       amazon.aws.ec2:
         region: "{{ aws_region }}"
