@@ -87,4 +87,8 @@
     - name: Show windows instance details - debug output
       debug: 
         msg: "windows instance is accesible at {{ ansible_tower_instance_windows }}"
-
+    - name: Gather facts
+      setup:
+      register: output
+    - set_facts:
+        name: "{{ output }}"
