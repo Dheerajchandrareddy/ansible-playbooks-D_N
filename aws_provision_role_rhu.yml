@@ -50,7 +50,7 @@
     - name: Task to create key pair
       amazon.aws.ec2_key:
         name: ansible-tower-aws-key
-        key_material: "{{ lookup('file', '~/.ssh/git.pub') }}"
+        key_material: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCh4FiZbzNG7hpfhUeVCUgRbjrJC15AsoBPInQGGiZcsP+dpFuSdWKODVmJQ6+RT3USWdRy3irj7xOGGXSgCC8/+tugJftZtEqbaOxuH6ItYDrDlZgsqaUKV81BN5/PgEM45jkTwkufDqevZsluaq+XnnMF2G1Vy4iM5S20xXIgfAWzAy0ngvvmueLmctdZHQFVocPfnp3kdeFRkbS3Z9i5RyQtHlsYoNI9c1UXjPXQvb49HxDldFj8wvP7EuKHuef1UU9yL2NN6C0eD0INWoPH1tC1hEkE8qkqmUthzeAIvILDnuZmiYmXHkKY/iGwEp38vdgLVjowXzAI71SdkEOR83IP+TcgBaPYAY1PYnkearpzYiPm3+dCJwEplgG5mK+jq3++oqrh5yOtaUVNNMKAGntV/BpFkD91Dk7OWCUuselOxrEOH6qoqRF4LXBXH9My6YE0LxTkUNK6bvl4I5XMzb9axU4oXqOeB6Q/38IP5CZKSWY/gpEsV4TQqlEL0u8= Nivedv@fedora"
     - name: Task to provision the RHEL 8 EC2 instance
       amazon.aws.ec2:
         region: "{{ aws_region }}"
