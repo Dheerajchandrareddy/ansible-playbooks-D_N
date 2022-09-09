@@ -57,13 +57,26 @@
         region: "{{ aws_region }}"
         key_name: ansible-tower-aws-key
         instance_type: t2.medium
-        image: ami-092b43193629811af
+        image: ami-0fecef330e60167c1
         wait: yes
         group: ansible_tower_sg
         count: 1
         vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
         assign_public_ip: yes
-      register: ansible_tower_instance
+      register: ansible_tower_instance_rhel
     - name: Show rhel 8 instance details - debug output
       debug: 
         msg: "rhel8 instance is accesible at {{ ansible_tower_instance }}"
+    - name: Task to provision the Windows Server 2019 EC2 instance
+      amazon.aws.ec2:
+        region: "{{ aws_region }}"
+        key_name: ansible-tower-aws-key
+        instance_type: t2.medium
+        image: ami-0d72555523e18b6d7
+        wait: yes
+        group: ansible_tower_sg
+        count: 1
+        vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
+        assign_public_ip: yes
+      register: ansible_tower_instance_windows
+
