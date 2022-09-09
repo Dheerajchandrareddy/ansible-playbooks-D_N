@@ -30,9 +30,9 @@
       register: ansible_tower_subnet
     - name: Setup public subnet route table
       amazon.aws.ec2_vpc_route_table:
-        vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
+        vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
         region: "{{ aws_region }}"
-        subnets: "{{ ansible_tower_subnet.subnet.id }}"
+        subnets: "{{ ansible_tower_subnet.subnet_id }}"
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ ansible_tower_igw.gateway_id }}"
@@ -40,7 +40,7 @@
       amazon.aws.ec2_group:
         name: ansible_tower_sg
         description: AWS Security Group for Ansible Tower Demonstration
-        vpc_id: "{{ ansible_tower_vpc.vpc.id }}"
+        vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
         region: "{{ aws_region }}"
         rules:
           - proto: tcp 
@@ -56,7 +56,7 @@
         wait: yes
         group: ansible_tower_sg
         count: 1
-        vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
+        vpc_subnet_id: "{{ ansible_tower_subnet.subnet_id }}"
         assign_public_ip: yes
     - name: Show rhel 8 instance details - debug output
       debug: 
