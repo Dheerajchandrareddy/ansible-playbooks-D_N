@@ -4,6 +4,10 @@
   vars_files:
     aws_region: us-east-2
   tasks:
+    - name:
+      pip:
+        name: boto3
+        state: present
     - name: Task to create vpc 
       ec2_vpc_net:
         name: ansible_tower_vpc
