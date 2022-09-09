@@ -1,0 +1,4 @@
+- name: Play to gather facts of all EC2 instances
+  hosts: all
+  tasks:
+  - setup:
