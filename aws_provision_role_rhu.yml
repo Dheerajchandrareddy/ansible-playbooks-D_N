@@ -32,7 +32,7 @@
       amazon.aws.ec2_vpc_route_table:
         vpc_id: "{{ ansible_tower_vpc.vpc_id }}"
         region: "{{ aws_region }}"
-        subnets: "{{ ansible_tower_subnet.subnet_id }}"
+        subnets: "{{ ansible_tower_subnet.subnet.id }}"
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{ ansible_tower_igw.gateway_id }}"
@@ -56,7 +56,7 @@
         wait: yes
         group: ansible_tower_sg
         count: 1
-        vpc_subnet_id: "{{ ansible_tower_subnet.subnet_id }}"
+        vpc_subnet_id: "{{ ansible_tower_subnet.subnet.id }}"
         assign_public_ip: yes
     - name: Show rhel 8 instance details - debug output
       debug: 
