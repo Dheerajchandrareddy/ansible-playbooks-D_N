@@ -1,6 +1,6 @@
 ---
 - name: play to create EC2 instance
-  hosts: localhost
+  hosts: windows
   gather_facts: yes
   vars:
     aws_region: us-east-2
