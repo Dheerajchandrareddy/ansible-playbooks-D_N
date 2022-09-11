@@ -48,6 +48,14 @@
             ports: 22
             cidr_ip: 0.0.0.0/0
             rule_desc: allow all connections on port 22
+          - proto: tcp
+            ports: 3389
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all connections on port 3389
+          - proto: tcp
+            ports: 5986
+            cidr_ip: 0.0.0.0/0
+            rule_desc: allow all connections on port 5986
     - name: Task to create key pair
       amazon.aws.ec2_key:
         name: ansible-tower-aws-key
